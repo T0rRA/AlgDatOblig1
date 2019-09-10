@@ -52,7 +52,20 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        int antallForskjelligeVerdier = a.length;
+        int tellerTemp = -1;
+
+        if(a.length == 0){
+            return 0;
+        }
+        for(int i = 0; i < a.length; i++){
+            for(int j = 0; j < a.length; j++){
+                if(a[i] == a[j]){
+                    tellerTemp++;
+                }
+            }
+            antallForskjelligeVerdier = antallForskjelligeVerdier - tellerTemp;
+        }
     }
 
     ///// Oppgave 4 //////////////////////////////////////
