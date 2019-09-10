@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
+
     private Oblig1() {
     }
 
@@ -122,21 +123,29 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
-    public static void sort(int[] a, int left, int right){
+    public static int[] sort(int[] a, int left, int right){
 
         for(int i = left; i < right; i++){
             for(int j = i; j < right; j++){
-                if(a[j] > a[j]+1){
+                if(a[j] > a[j+1]){
                     int temp = a[j];
-                    a[j] = a[j+1];
+                    a[j]  = a[j+1];
                     a[j+1] = temp;
                 }
             }
-            
+            right--;
+        }
+        return a;
+    }
+    
+    public static void main(String[] args){
+        int [] tall = {1,324,2,7,8,3};
+        tall = sort(tall, 0, tall.length-1);
+        for(int nummer : tall){
+            System.out.print(nummer + " ");
+
         }
     }
-
-    public static void swap(){}
 
 }  // Oblig1
 
