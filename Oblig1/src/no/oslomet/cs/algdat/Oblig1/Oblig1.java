@@ -42,6 +42,10 @@ public class Oblig1 {
                     antallForskjelligeVerdier++;
                 }
             }
+
+            if(a.length <= 0){
+                antallForskjelligeVerdier = 0;
+            }
         return antallForskjelligeVerdier;
     }
 
