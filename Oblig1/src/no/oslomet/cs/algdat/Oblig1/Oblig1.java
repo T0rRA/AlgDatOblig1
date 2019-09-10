@@ -44,6 +44,7 @@ public class Oblig1 {
                     a[i] =a[i+1];
                     a[i+1]=midlertidig;
                     antall++;
+                    System.out.println("Antall ombyttinger: "+antall);
                 }
             }
         return antall;
@@ -173,13 +174,13 @@ public class Oblig1 {
     public static void main(String[] args){
         int [] tall = {5, 2, 8, 4, 7, 6};
         //sort(tall, 0, tall.length-1);
-        maks(tall);
+        ombyttinger(tall);
 
 
-        for(int nummer : tall){
+   /*     for(int nummer : tall){
             System.out.print(nummer + " ");
 
-        }
+        } */
 
     }
 
