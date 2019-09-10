@@ -14,15 +14,21 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        int max_verdi = 0;
-        for(int i=0; i<a.length;i++){
-            if (max_verdi<a[i]){
-                max_verdi = a[i];
+    if (a.length<=0){
+        throw new NoSuchElementException("FUUUUUUUUUUUUUUUUUUUUUUUu");
+    }
+    else
+        for(int i=0; i<a.length-2;i++){
+            if (a[i]>a[i+1]){
+                int midlertidig = a[i];
+                a[i] =a[i+1];
+                a[i+1]=midlertidig;
             }
         }
 
-        return max_verdi;
+        return a.length-1;
     }
+
 
 
     public static int ombyttinger(int[] a) {
@@ -35,7 +41,7 @@ public class Oblig1 {
 
         for (int i = 1; i < a.length; i++){
             if(a[i-1] != a[i]){
-                antallForskjelligeVerdier++
+                antallForskjelligeVerdier++;
             }
         }
         return antallForskjelligeVerdier;
