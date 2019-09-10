@@ -1,7 +1,6 @@
 package no.oslomet.cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
-//Endring av Benjamin
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Arrays;
@@ -59,7 +58,21 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        int antallForskjelligeVerdier = a.length;
+        int tellerTemp = -1;
+
+        for(int i = 0; i < a.length; i++){
+            for(int j = i; j < a.length; j++){
+                if(a[i] == a[j]){
+                    tellerTemp++;
+                }
+            }
+            antallForskjelligeVerdier = antallForskjelligeVerdier - tellerTemp;
+            tellerTemp = -1;
+        }
+        System.out.println(antallForskjelligeVerdier);
+
+        return antallForskjelligeVerdier;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
