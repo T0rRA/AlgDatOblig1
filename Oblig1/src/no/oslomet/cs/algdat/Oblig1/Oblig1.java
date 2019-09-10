@@ -27,9 +27,8 @@ public class Oblig1 {
                 a[i+1]=midlertidig;
             }
         }
-        return a.length-1;
+            return a[a.length-1];
     }
-
 
 
     public static int ombyttinger(int[] a) {
@@ -136,14 +135,21 @@ public class Oblig1 {
             right--;
         }
     }
+/*int[] a = {3};
+        int[] b = {5, 2, 8, 4, 7, 6};
+        int[] c = {5, 4, 3, 2, 1};
+        int[] d = {1, 2, 3, 4, 5};*/
 
     public static void main(String[] args){
-        int [] tall = {1,324,2,7,8,3};
-        sort(tall, 0, tall.length-1);
+        int [] tall = {5, 2, 8, 4, 7, 6};
+        //sort(tall, 0, tall.length-1);
+        maks(tall);
+
         for(int nummer : tall){
             System.out.print(nummer + " ");
 
         }
+
     }
 
 }  // Oblig1
