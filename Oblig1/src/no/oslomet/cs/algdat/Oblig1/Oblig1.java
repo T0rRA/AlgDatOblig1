@@ -64,7 +64,21 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        int left = 0;
+        int right = a.length-1;
+
+        while(left < right){
+            while (a[left] % 2 == 1){
+                left--;
+            }
+            while (a[right] % 2 == 0){
+                right--;
+            }
+            int temp = left;
+            left = right;
+            right = temp;
+        }
+
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -108,4 +122,22 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
+    public static void sort(int[] a, int left, int right){
+
+        for(int i = left; i < right; i++){
+            for(int j = i; j < right; j++){
+                if(a[j] > a[j]+1){
+                    int temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                }
+            }
+            
+        }
+    }
+
+    public static void swap(){}
+
 }  // Oblig1
+
+
