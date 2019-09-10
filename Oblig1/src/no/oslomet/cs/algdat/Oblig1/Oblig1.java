@@ -99,17 +99,22 @@ public class Oblig1 {
         int right = a.length-1;
 
         while(left < right){
-            while (a[left] % 2 == 1){
-                left--;
+            while (a[left] % 2 == 1 && left < a.length-1){
+                left++;
             }
-            while (a[right] % 2 == 0){
+            while (a[right] % 2 == 0 && right > 0){
                 right--;
             }
-            int temp = left;
-            left = right;
-            right = temp;
+            if(left < right) {
+                int temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+            }else{break;}
+
         }
 
+        sort(a, 0,left-1);
+        sort(a, left, a.length-1);
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -154,16 +159,18 @@ public class Oblig1 {
     }
 
     public static void sort(int[] a, int left, int right){
+        if(left >= right){
+            return;
+        }
 
         for(int i = left; i < right; i++){
-            for(int j = i; j < right; j++){
+            for(int j = i; j < right-(i-left); j++){
                 if(a[j] > a[j+1]){
                     int temp = a[j];
                     a[j]  = a[j+1];
                     a[j+1] = temp;
                 }
             }
-            right--;
         }
     }
 /*int[] a = {3};
@@ -178,10 +185,20 @@ public class Oblig1 {
 
 
    /*     for(int nummer : tall){
+        int [] tall = {324,2,7,8,3};
+        int [] a = {1, 3, 5, 4, 2, 6};
+        sort(a,3,a.length-1);
+        sort(tall, 0, tall.length-1);
+        for(int nummer : tall){
             System.out.print(nummer + " ");
 
         } */
 
+        }
+        System.out.println("");
+        for (int nummer : a){
+            System.out.print(nummer + " ");
+        }
     }
 
 }  // Oblig1
