@@ -15,7 +15,7 @@ public class Oblig1 {
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
     if (a.length==0){
-        throw new NoSuchElementException("FUUUUUUUUUUUUUUUUUUUUUUUu");
+        throw new NoSuchElementException("Tabellen er for kort!");
     }
     else
 
@@ -31,8 +31,25 @@ public class Oblig1 {
 
 
     public static int ombyttinger(int[] a) {
-        throw new NotImplementedException();
+        int antall=0;
+
+        if (a.length==0){
+            throw new NoSuchElementException("Tabellen er for kort!");
+        }
+        else
+
+            for(int i=0; i<a.length-1;i++){
+                if (a[i]>a[i+1]){
+                    int midlertidig = a[i];
+                    a[i] =a[i+1];
+                    a[i+1]=midlertidig;
+                    antall++;
+                }
+            }
+        return antall;
     }
+
+
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
@@ -157,6 +174,7 @@ public class Oblig1 {
         int [] tall = {5, 2, 8, 4, 7, 6};
         //sort(tall, 0, tall.length-1);
         maks(tall);
+
 
         for(int nummer : tall){
             System.out.print(nummer + " ");
