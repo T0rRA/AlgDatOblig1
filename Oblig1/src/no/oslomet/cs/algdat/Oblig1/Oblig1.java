@@ -14,18 +14,18 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-    if (a.length<=0){
+    if (a.length==0){
         throw new NoSuchElementException("FUUUUUUUUUUUUUUUUUUUUUUUu");
     }
     else
-        for(int i=0; i<a.length-2;i++){
+
+        for(int i=0; i<a.length-1;i++){
             if (a[i]>a[i+1]){
                 int midlertidig = a[i];
                 a[i] =a[i+1];
                 a[i+1]=midlertidig;
             }
         }
-
         return a.length-1;
     }
 
