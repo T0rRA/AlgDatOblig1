@@ -8,23 +8,24 @@ import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
+
     private Oblig1() {
     }
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-    if (a.length<=0){
+    if (a.length==0){
         throw new NoSuchElementException("FUUUUUUUUUUUUUUUUUUUUUUUu");
     }
     else
-        for(int i=0; i<a.length-2;i++){
+
+        for(int i=0; i<a.length-1;i++){
             if (a[i]>a[i+1]){
                 int midlertidig = a[i];
                 a[i] =a[i+1];
                 a[i+1]=midlertidig;
             }
         }
-
         return a.length-1;
     }
 
@@ -139,17 +140,24 @@ public class Oblig1 {
 
         for(int i = left; i < right; i++){
             for(int j = i; j < right; j++){
-                if(a[j] > a[j]+1){
+                if(a[j] > a[j+1]){
                     int temp = a[j];
-                    a[j] = a[j+1];
+                    a[j]  = a[j+1];
                     a[j+1] = temp;
                 }
             }
-            
+            right--;
         }
     }
 
-    public static void swap(){}
+    public static void main(String[] args){
+        int [] tall = {1,324,2,7,8,3};
+        sort(tall, 0, tall.length-1);
+        for(int nummer : tall){
+            System.out.print(nummer + " ");
+
+        }
+    }
 
 }  // Oblig1
 
