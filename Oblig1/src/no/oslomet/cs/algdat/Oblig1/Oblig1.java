@@ -13,8 +13,16 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new NotImplementedException();
+        int max_verdi = 0;
+        for(int i=0; i<a.length;i++){
+            if (max_verdi<a[i]){
+                max_verdi = a[i];
+            }
+        }
+
+        return max_verdi;
     }
+
 
     public static int ombyttinger(int[] a) {
         throw new NotImplementedException();
@@ -22,7 +30,14 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new NotImplementedException();
+        int antallForskjelligeVerdier = 1;
+
+        for (int i = 1; i < a.length; i++){
+            if(a[i-1] != a[i]){
+                antallForskjelligeVerdier++
+            }
+        }
+        return antallForskjelligeVerdier;
     }
 
 
