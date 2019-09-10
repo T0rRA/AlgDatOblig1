@@ -123,7 +123,7 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
-    public static int[] sort(int[] a, int left, int right){
+    public static void sort(int[] a, int left, int right){
 
         for(int i = left; i < right; i++){
             for(int j = i; j < right; j++){
@@ -135,12 +135,11 @@ public class Oblig1 {
             }
             right--;
         }
-        return a;
     }
-    
+
     public static void main(String[] args){
         int [] tall = {1,324,2,7,8,3};
-        tall = sort(tall, 0, tall.length-1);
+        sort(tall, 0, tall.length-1);
         for(int nummer : tall){
             System.out.print(nummer + " ");
 
