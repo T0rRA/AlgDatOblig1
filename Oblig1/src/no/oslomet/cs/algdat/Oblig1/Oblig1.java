@@ -14,8 +14,16 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new NotImplementedException();
+        int max_verdi = 0;
+        for(int i=0; i<a.length;i++){
+            if (max_verdi<a[i]){
+                max_verdi = a[i];
+            }
+        }
+
+        return max_verdi;
     }
+
 
     public static int ombyttinger(int[] a) {
         throw new NotImplementedException();
