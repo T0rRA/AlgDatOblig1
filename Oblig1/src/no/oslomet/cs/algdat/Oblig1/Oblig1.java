@@ -176,34 +176,33 @@ public class Oblig1 {
             kombinert[k++] = tArray[j++]; //verdi fra tArray
         }
           while (i<sArray.length){kombinert[k++] = sArray[i++];}
-          while (j<tArray.length){kombinert[k++] = tArray[i++];}
+          while (j<tArray.length){kombinert[k++] = tArray[j++];}
 
-        return Arrays.toString(kombinert);
+          String ut = new String (kombinert);
+          return ut;
 
-        /*String utString = "";
-        int lengde = s.length()-t.length();
-        if(lengde > 0){
-            for(int i = 0; i < t.length();i++){
+       /* String utString = "";
+        int lengde = s.length() - t.length();
+        if (lengde > 0) {
+            for (int i = 0; i < t.length(); i++) {
                 utString += s.charAt(i);
                 utString += t.charAt(i);
             }
-            for(int i = lengde; i < s.length();i++){
+            for (int i = lengde; i < s.length(); i++) {
                 utString += s.charAt(i);
             }
             return utString;
-        }else{
-            for(int i = 0; i < s.length();i++){
+        } else {
+            for (int i = 0; i < s.length(); i++) {
                 utString += s.charAt(i);
                 utString += t.charAt(i);
             }
-            for(int i = Math.abs(lengde); i < t.length();i++){
+            for (int i = Math.abs(lengde); i < t.length(); i++) {
                 utString += t.charAt(i);
             }
-            return utString;*/
-        }
-
-
-
+            return utString;
+        }*/
+    }
     /// 7b)
     public static String flett(String... s) {
         throw new NotImplementedException();
@@ -264,11 +263,13 @@ public class Oblig1 {
         int[] d = {1, 2, 3, 4, 5};*/
 
     public static void main(String[] args){
-        char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        // flett("abcd","12345");
+        System.out.print(flett("",""));
+        /* char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         rotasjon(a,-6);
         System.out.print(a);
 
-   /*     for(int nummer : tall){
+       for(int nummer : tall){
         int [] tall = {324,2,7,8,3};
         int [] a = {1, 3, 5, 4, 2, 6};
         sort(a,3,a.length-1);
