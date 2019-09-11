@@ -140,7 +140,15 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+        char[]sArray = s.toCharArray(); // caster til array
+        char [] tArray = t.toCharArray();
+        char[]kombinert = new char[sArray.length+tArray.length];
+        for(int i=0; i<kombinert.length; i++){
+            kombinert[i*2] = sArray[i];
+            kombinert[i*2+1]= tArray[i];
+        }
+
+        return Arrays.toString(kombinert);
     }
 
     /// 7b)
