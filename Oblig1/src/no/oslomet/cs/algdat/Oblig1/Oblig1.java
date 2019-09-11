@@ -120,7 +120,16 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new NotImplementedException();
+        if(a.length == 0){
+            return;
+        }
+        char sisteVerdi = a[a.length-1];
+        for(int i = 1; i < a.length; i++){
+            char temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+        }
+        a[0] = sisteVerdi;
     }
 
     ///// Oppgave 6 //////////////////////////////////////
