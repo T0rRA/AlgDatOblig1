@@ -48,24 +48,25 @@ public class Oblig1 {
     }
 
 
+
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
         int antallForskjelligeVerdier = 1;
 
-        for (int i = 1; i < a.length; i++) {
-            //Sjekker om listen er sortert
-            if (a[i - 1] > a[i]) {
-                throw new IllegalStateException("Listen er ikke sortert");
+            for (int i = 1; i < a.length; i++){
+                //Sjekker om listen er sortert
+                if(a[i-1] > a[i]) {
+                    throw new IllegalStateException("Listen er ikke sortert");
+                }
+
+                if(a[i-1] != a[i]){
+                    antallForskjelligeVerdier++;
+                }
             }
 
-            if (a[i - 1] != a[i]) {
-                antallForskjelligeVerdier++;
+            if(a.length <= 0){
+                antallForskjelligeVerdier = 0;
             }
-        }
-
-        if (a.length <= 0) {
-            antallForskjelligeVerdier = 0;
-        }
         return antallForskjelligeVerdier;
     }
 
@@ -75,9 +76,9 @@ public class Oblig1 {
         int antallForskjelligeVerdier = a.length;
         int tellerTemp = -1;
 
-        for (int i = 0; i < a.length; i++) {
-            for (int j = i; j < a.length; j++) {
-                if (a[i] == a[j]) {
+        for(int i = 0; i < a.length; i++){
+            for(int j = i; j < a.length; j++){
+                if(a[i] == a[j]){
                     tellerTemp++;
                 }
             }
@@ -92,27 +93,29 @@ public class Oblig1 {
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
         int left = 0;
-        int right = a.length - 1;
+        int right = a.length-1;
 
-        while (left < right) {
-            while (a[left] % 2 == 1 && left < a.length - 1) {
+        while(left < right){
+            while (a[left] % 2 != 0 && left < a.length-1){
                 left++;
             }
-            while (a[right] % 2 == 0 && right > 0) {
+            while (a[right] % 2 == 0 && right > 0){
                 right--;
             }
-            if (left < right) {
+            if(left < right) {
                 int temp = a[left];
                 a[left] = a[right];
                 a[right] = temp;
-            } else {
-                break;
             }
 
         }
 
-        sort(a, 0, left - 1);
-        sort(a, left, a.length - 1);
+        if(left != a.length-1) {
+            sort(a, 0, left - 1);
+            sort(a, left, a.length - 1);
+        }else{
+            sort(a, 0, a.length-1);
+        }
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -156,31 +159,46 @@ public class Oblig1 {
         throw new NotImplementedException();
     }
 
-    public static void sort(int[] a, int left, int right) {
-        if (left >= right) {
-            return;
-        }
+    public static void sort(int[] a, int left, int right){
+        if(left < right) {
+            int partisjon = partition(a, left, right);
 
-        for (int i = left; i < right; i++) {
-            for (int j = i; j < right - (i - left); j++) {
-                if (a[j] > a[j + 1]) {
-                    int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
-                }
+            sort(a, left, partisjon - 1);
+            sort(a, partisjon, right);
+        }
+    }
+
+    public static int partition(int[] a, int left, int right){
+        int pivot = a[(left + right)/2];
+
+        while(left <= right){
+            while (a[left] < pivot){
+                left++;
+            }
+            while (a[right] > pivot){
+                right--;
+            }
+            if(left <= right) {
+                int temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+                left++;
+                right--;
             }
         }
+        return left;
     }
 /*int[] a = {3};
         int[] b = {5, 2, 8, 4, 7, 6};
         int[] c = {5, 4, 3, 2, 1};
         int[] d = {1, 2, 3, 4, 5};*/
 
-    public static void main(String[] args) {
-        int[] tall = {5, 2, 8, 4, 7, 6};
-        //sort(tall, 0, tall.length-1);
-        ombyttinger(tall);
-
+    public static void main(String[] args){
+        int [] tall = {6,2,4};
+        sort(tall, 0, tall.length-1);
+        for(int nummere: tall){
+            System.out.print(nummere);
+        }
 
    /*     for(int nummer : tall){
         int [] tall = {324,2,7,8,3};
