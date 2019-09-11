@@ -6,6 +6,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.cbrt;
+
 
 public class Oblig1 {
 
@@ -132,9 +135,32 @@ public class Oblig1 {
         a[0] = sisteVerdi;
     }
 
-    ///// Oppgave 6 //////////////////////////////////////
+    ///// Oppgave 6 //////////////////////////////////for(int i = 0; i < a.length-1;i++){////
     public static void rotasjon(char[] a, int k) {
-        throw new NotImplementedException();
+        if(a.length == 0){
+            return;
+        }
+
+        int antallFlytt = k % a.length;
+        char[] b = a.clone();
+
+        if(k > 0){
+            for(int i = 0; i < a.length; i++){
+                if(i + antallFlytt < a.length){
+                    a[i + antallFlytt] = b[i];
+                }else{
+                    a[i+antallFlytt - a.length] = b[i];
+                }
+            }
+        }else if(k < 0){
+            for(int i = a.length-1; i >= 0; i--){
+                if(i + antallFlytt >= 0){
+                    a[i + antallFlytt] = b[i];
+                }else{
+                    a[a.length+(i + antallFlytt)] = b[i];
+                }
+            }
+        }
     }
 
     ///// Oppgave 7 //////////////////////////////////////
@@ -238,11 +264,9 @@ public class Oblig1 {
         int[] d = {1, 2, 3, 4, 5};*/
 
     public static void main(String[] args){
-        int [] tall = {6,2,4};
-        sort(tall, 0, tall.length-1);
-        for(int nummere: tall){
-            System.out.print(nummere);
-        }
+        char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        rotasjon(a,-6);
+        System.out.print(a);
 
    /*     for(int nummer : tall){
         int [] tall = {324,2,7,8,3};
@@ -259,8 +283,8 @@ public class Oblig1 {
         for (int nummer : a){
             System.out.print(nummer + " ");
         }*/
-    }
-}
+    }}
+
   // Oblig1
 
 
