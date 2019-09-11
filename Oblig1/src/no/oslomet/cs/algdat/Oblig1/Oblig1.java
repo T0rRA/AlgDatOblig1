@@ -143,13 +143,40 @@ public class Oblig1 {
         char[]sArray = s.toCharArray(); // caster til array
         char [] tArray = t.toCharArray();
         char[]kombinert = new char[sArray.length+tArray.length];
-        for(int i=0; i<kombinert.length; i++){
-            kombinert[i*2] = sArray[i];
-            kombinert[i*2+1]= tArray[i];
+
+        int i= 0, j = 0, k=0;
+        while(i<sArray.length && j<tArray.length){
+            kombinert[k++] = sArray[i++]; // verdi fra sArray
+            kombinert[k++] = tArray[j++]; //verdi fra tArray
         }
+          while (i<sArray.length){kombinert[k++] = sArray[i++];}
+          while (j<tArray.length){kombinert[k++] = tArray[i++];}
 
         return Arrays.toString(kombinert);
-    }
+
+        /*String utString = "";
+        int lengde = s.length()-t.length();
+        if(lengde > 0){
+            for(int i = 0; i < t.length();i++){
+                utString += s.charAt(i);
+                utString += t.charAt(i);
+            }
+            for(int i = lengde; i < s.length();i++){
+                utString += s.charAt(i);
+            }
+            return utString;
+        }else{
+            for(int i = 0; i < s.length();i++){
+                utString += s.charAt(i);
+                utString += t.charAt(i);
+            }
+            for(int i = Math.abs(lengde); i < t.length();i++){
+                utString += t.charAt(i);
+            }
+            return utString;*/
+        }
+
+
 
     /// 7b)
     public static String flett(String... s) {
