@@ -82,13 +82,14 @@ public class Oblig1 {
         for(int i = 0; i < a.length; i++){
             for(int j = i; j < a.length; j++){
                 if(a[i] == a[j]){
-                    tellerTemp++;
+                    if(tellerTemp < 1) {
+                        tellerTemp++;
+                    }
                 }
             }
             antallForskjelligeVerdier = antallForskjelligeVerdier - tellerTemp;
             tellerTemp = -1;
         }
-        System.out.println(antallForskjelligeVerdier);
 
         return antallForskjelligeVerdier;
     }

@@ -4,6 +4,7 @@ Denne oppgaven er en innlevering i Algoritmer og Datastrukturer.
 Oppgaven er levert av følgende studenter:
 * Helge Helland, s331356, s331356@oslomet.no
 * Tor Ryan Andersen, s331383, s331383@oslomet.no
+//TODO bejanmin må legge til navn og studentNr
 
 # Arbeidsfordeling
 
