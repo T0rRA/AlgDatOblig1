@@ -44,9 +44,10 @@ public class Oblig1 {
                     a[i] = a[i + 1];
                     a[i + 1] = midlertidig;
                     antall++;
-                    System.out.println("Antall ombyttinger: " + antall);
+
                 }
             }
+        System.out.println("Antall ombyttinger: " + antall); //FJERNES - teller antall ombyttinger it tester
         return antall;
     }
 
@@ -206,7 +207,12 @@ public class Oblig1 {
     }
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+        for(int i=0; i<s.length; i++){
+
+
+        }
+        String ut="fff";
+        return ut;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
