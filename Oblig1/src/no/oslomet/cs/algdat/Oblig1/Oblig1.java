@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.stream.IntStream;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.cbrt;
@@ -217,7 +218,13 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+        // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
+        int[] sorterteIndexer = IntStream.range(0, a.length)
+                .boxed().sorted((i, j) -> a[i] - a[j])
+                .mapToInt(ele -> ele).toArray();
+
+
+        return sorterteIndexer;
     }
 
 
