@@ -207,6 +207,8 @@ public class Oblig1 {
         }*/
     }
     /// 7b)
+
+
     public static String flett(String... s) {
         for(int i=0; i<s.length; i++){
 
@@ -217,14 +219,43 @@ public class Oblig1 {
     }
 
     ///// Oppgave 8 //////////////////////////////////////
+    public static void bytteFunksjon(int[] sorterteIndexer, int i, int j)
+    {
+        int byttindeks = sorterteIndexer[i];
+        sorterteIndexer[i] = sorterteIndexer[j+1];
+        sorterteIndexer[j+1] = byttindeks;
+    }
+
+
     public static int[] indekssortering(int[] a) {
-        // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
+     /*   // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
         int[] sorterteIndexer = IntStream.range(0, a.length)
                 .boxed().sorted((i, j) -> a[i] - a[j])
                 .mapToInt(ele -> ele).toArray();
 
-
         return sorterteIndexer;
+    }
+*/
+
+        int [] sorterteIndexer  = new int [a.length];
+
+        for (int i = 0; i < a.length; i++){
+            sorterteIndexer[i] = i; }
+
+            int byttindeks = sorterteIndexer[0];
+        for(int i = 0; i<a.length-1;i++)
+            {
+                if (a[byttindeks] > a[sorterteIndexer[i+1]])
+                {
+                    sorterteIndexer[i] = sorterteIndexer[i+1];
+                    sorterteIndexer[i+1] = byttindeks;
+                }
+                else{
+                    byttindeks = sorterteIndexer[i];
+                }
+            }
+        return sorterteIndexer;
+
     }
 
 
@@ -278,7 +309,12 @@ public class Oblig1 {
 
     public static void main(String[] args){
         // flett("abcd","12345");
-        System.out.print(flett("",""));
+        int []a= {2,1,3};
+       // indekssortering(a);
+        for(int ff : Oblig1.indekssortering(a)){
+            System.out.print(ff);
+        }
+
         /* char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         rotasjon(a,-6);
         System.out.print(a);
