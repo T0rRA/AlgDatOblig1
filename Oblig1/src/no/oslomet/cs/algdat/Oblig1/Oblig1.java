@@ -2,12 +2,12 @@ package no.oslomet.cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.cbrt;
+import java.util.Arrays;
+import static java.util.Arrays.binarySearch;
 
 
 public class Oblig1 {
@@ -211,9 +211,23 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
-    }
+        int[] indeks = {};
 
+        if( a == null || a.length == 0){
+            return indeks;
+        }
+
+        int[] b = a;
+        Arrays.sort(b);
+        int teller = 0;
+
+        for(int i = 0; i < a.length; i++){
+            indeks[teller] = binarySearch(a,b[teller]);
+            teller++;
+        }
+        return indeks;
+    }
+    
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
