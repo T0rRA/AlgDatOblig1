@@ -211,27 +211,41 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        int[] indeks = {};
+        int[] sortertIndeks = new int [a.length];
 
         if( a == null || a.length == 0){
-            return indeks;
+            return sortertIndeks;
+        }
+        if(a.length == 1){
+            return new int[]{0};
         }
 
-        int[] b = a;
-        Arrays.sort(b);
-        int teller = 0;
+        int[] b = a.clone();
+        sort(b,0,a.length-1);
 
         for(int i = 0; i < a.length; i++){
-            indeks[teller] = binarySearch(a,b[teller]);
-            teller++;
+            //sortertIndeks[i] = binarySearch(a,b[i]);
+            for(int j = 0; j < a.length; j++){
+                if(a[j] == b[i]){
+                    sortertIndeks[i] = j;
+                }
+            }
         }
-        return indeks;
+        return sortertIndeks;
     }
-    
+
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        if(a.length < 3){
+            throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
+        }
+        int [] b = a.clone();
+        sort(b,0,a.length-1);
+        int [] c = new int[]{b[0],b[1],b[2]};
+
+        return indekssortering(c);
     }
 
     ///// Oppgave 10 //////////////////////////////////////
