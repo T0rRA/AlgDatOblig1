@@ -304,7 +304,7 @@ public class Oblig1 {
 
             while( bR[bTeller]== temp){
                 bAntall++;
-                if (bTeller== b.length()-1){
+                if (bTeller== bR.length-1){
                     bTeller++;
                     break;
                 }
@@ -316,7 +316,7 @@ public class Oblig1 {
                     aTeller++;
                     break;
                 }
-                aAntall++;
+                aTeller++;
             }
 
 
