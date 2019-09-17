@@ -208,14 +208,39 @@ public class Oblig1 {
     }
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+        if(s.length == 0){
+            return "";
+        }
+        String ut = "";
+        int [] lengderAvStrenger = new int[s.length];
+        for(int i = 0; i < s.length; i++){
+            lengderAvStrenger[i] = s[i].length();
+        }
+
+
+        int lengsteString = lengderAvStrenger[0];
+        for(int i = 1; i < lengderAvStrenger.length; i++){
+            if(lengderAvStrenger[i] > lengsteString){
+                lengsteString = lengderAvStrenger[i];
+            }
+        }
+
+        for (int j = 0; j < lengsteString; j++){
+                for (int k = 0; k < s.length; k++){
+                    if (j < lengderAvStrenger[k]) {
+                        ut += s[k].charAt(j);
+                    }
+                }
+            }
+
+        return ut;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         int[] sortertIndeks = new int [a.length];
 
-        if( a == null || a.length == 0){
+        if(a.length == 0){
             return sortertIndeks;
         }
         if(a.length == 1){
@@ -325,7 +350,7 @@ public class Oblig1 {
         }
     }
 
-    public static int partition(int[] a, int left, int right){
+    private static int partition(int[] a, int left, int right){
         int pivot = a[(left + right)/2];
 
         while(left <= right){
@@ -355,7 +380,7 @@ public class Oblig1 {
         }
     }
 
-    public static int partition(char[] a, int left, int right){
+    private static int partition(char[] a, int left, int right){
         int pivot = a[(left + right)/2];
 
         while(left <= right){
@@ -379,36 +404,12 @@ public class Oblig1 {
 
 /*int[] a = {3};
         int[] b = {5, 2, 8, 4, 7, 6};
-        int[] c = {5, 4, 3, 2, 1};
+        int[] c = {5, 4, 3, 2, 1};System.​out.println(a);
         int[] d = {1, 2, 3, 4, 5};*/
 
     public static void main(String[] args){
-        // flett("abcd","12345");
-        int []a= {2,5,3,1};
-       // indekssortering(a);
-        for(int ff : Oblig1.indekssortering(a)){
-            System.out.print(ff);
-        }
-
-        /* char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        rotasjon(a,-6);
-        System.out.print(a);
-
-       for(int nummer : tall){
-        int [] tall = {324,2,7,8,3};
-        int [] a = {1, 3, 5, 4, 2, 6};
-        sort(a,3,a.length-1);
-        sort(tall, 0, tall.length-1);
-        for(int nummer : tall){
-            System.out.print(nummer + " ");
-
-        }
-
-        }
-        System.out.println("");
-        for (int nummer : a){
-            System.out.print(nummer + " ");
-        }*/
+        String s = Oblig1.flett("AFK", "BGLP", "CHMQT", "DINRUW", "EJOSVXY");
+        System.out.println(s);
     }}
 
   // Oblig1
