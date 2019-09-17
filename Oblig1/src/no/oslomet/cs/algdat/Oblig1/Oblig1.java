@@ -311,16 +311,44 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
+        if (a.length() == 0 || b.length()==0){
+            return false;
+        }
         if(a.length()>b.length()){return false;}
 
         char[]aR = a.toCharArray();
         char []bR = b.toCharArray();
         sort(aR,0 ,aR.length-1 );
-        sort(bR,0, bR.length)-1);
+        sort(bR,0, bR.length-1);
 
-        for (int i =0;i < bR.length;i++){
-          char temp;
-            
+        int aTeller= 0;
+        int bTeller=0;
+
+
+        while (bTeller < bR.length){
+            int aAntall=0;
+            int bAntall=0;
+            int temp=bR[bTeller];
+
+            while( bR[bTeller]== temp){
+                bAntall++;
+                if (bTeller== b.length()-1){
+                    bTeller++;
+                    break;
+                }
+                bTeller++;
+            }
+            while( aR[aTeller]== temp){
+                aAntall++;
+                if(aTeller==aR.length-1){
+                    aTeller++;
+                    break;
+                }
+                aAntall++;
+            }
+
+
+            if(bAntall<aAntall){return false;}
         }
 
         return true;
