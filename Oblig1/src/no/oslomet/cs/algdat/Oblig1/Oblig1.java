@@ -26,6 +26,21 @@ public class Oblig1 {
         return a[a.length - 1];
     }
 
+    /**
+     * Når blir det flest ombyttinger?
+     * Det blir flest ombyttinger når det første tallet først.
+     *
+     * Når blir det færrest?
+     * Det blir færrest ombyttinger når listen er sortert i stigende rekkefølge.
+     *
+     * Hvor mange blir det i gjennomsnitt?
+     * n/2
+     * Kan du på grunnlag av dette si om metoden maks er bedre (eller
+     * dårligere) enn de maks-metodene vi har sett på tidligere?
+     *
+     * @param a
+     * @return
+     */
     public static int ombyttinger(int[] a) {
         int antall = 0;
 
@@ -41,7 +56,6 @@ public class Oblig1 {
 
                 }
             }
-        System.out.println("Antall ombyttinger: " + antall); //FJERNES - teller antall ombyttinger it tester
         return antall;
     }
 
@@ -320,7 +334,6 @@ public class Oblig1 {
                 aTeller++;
             }
 
-
             if(bAntall<aAntall){return false;}
         }
 
@@ -392,6 +405,13 @@ public class Oblig1 {
     }
 
     public static void main(String[] args){
-        Boolean b = Oblig1.inneholdt("ABBA", "AKROBAT");
-        System.out.println(b);
+        int[] a = {3};
+        int[] b = {5, 2, 8, 4, 7, 6};
+        int[] c = {5, 4, 3, 2, 1};
+        int[] d = {1, 2, 3, 4, 5};
+        ombyttinger(a);
+        ombyttinger(b);
+        ombyttinger(c);
+        ombyttinger(d);
+
     }}
