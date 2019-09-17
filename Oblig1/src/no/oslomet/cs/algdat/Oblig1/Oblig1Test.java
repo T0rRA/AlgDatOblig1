@@ -908,6 +908,7 @@ public class Oblig1Test {
             x[2 * i] = 'X';
             x[2 * i + 1] = 'Y';
         }
+
         String t = String.copyValueOf(x);
 
         char[] y = new char[100000];

@@ -314,6 +314,7 @@ public class Oblig1 {
                 aAntall++;
                 if(aTeller==aR.length-1){
                     aTeller++;
+
                     break;
                 }
                 aTeller++;
