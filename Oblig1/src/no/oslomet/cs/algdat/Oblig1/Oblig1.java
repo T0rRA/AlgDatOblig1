@@ -3,12 +3,12 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.Arrays;
 import java.util.NoSuchElementException;
-import java.util.stream.IntStream;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.cbrt;
+import java.util.Arrays;
+import static java.util.Arrays.binarySearch;
 
 
 public class Oblig1 {
@@ -207,63 +207,47 @@ public class Oblig1 {
         }*/
     }
     /// 7b)
-
-
     public static String flett(String... s) {
-        for(int i=0; i<s.length; i++){
-
-
-        }
-        String ut="fff";
-        return ut;
+        throw new NotImplementedException();
     }
-
-
 
     ///// Oppgave 8 //////////////////////////////////////
-    public static void bytteFunksjon(int[] sorterteIndexer, int i, int j)
-    {
-        int byttindeks = sorterteIndexer[i];
-        sorterteIndexer[i] = sorterteIndexer[j+1];
-        sorterteIndexer[j+1] = byttindeks;
-    }
-
-
     public static int[] indekssortering(int[] a) {
-        // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
-        int[] sorterteIndexer = IntStream.range(0, a.length)
-                .boxed().sorted((i, j) -> a[i] - a[j])
-                .mapToInt(ele -> ele).toArray();
+        int[] sortertIndeks = new int [a.length];
 
-        return sorterteIndexer;
-    }
+        if( a == null || a.length == 0){
+            return sortertIndeks;
+        }
+        if(a.length == 1){
+            return new int[]{0};
+        }
 
+        int[] b = a.clone();
+        sort(b,0,a.length-1);
 
-        /*int [] sorterteIndexer  = new int [a.length];
-
-        for (int i = 0; i < a.length; i++){
-            sorterteIndexer[i] = i; }
-
-            int byttindeks = sorterteIndexer[0];
-        for(int i = 0; i<a.length-1;i++)
-            {
-                if (a[byttindeks] > a[sorterteIndexer[i+1]])
-                {
-                    sorterteIndexer[i] = sorterteIndexer[i+1];
-                    sorterteIndexer[i+1] = byttindeks;
-                }
-                else{
-                    byttindeks = sorterteIndexer[i];
+        for(int i = 0; i < a.length; i++){
+            //sortertIndeks[i] = binarySearch(a,b[i]);
+            for(int j = 0; j < a.length; j++){
+                if(a[j] == b[i]){
+                    sortertIndeks[i] = j;
                 }
             }
-        return sorterteIndexer;
-*/
-
+        }
+        return sortertIndeks;
+    }
 
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        if(a.length < 3){
+            throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
+        }
+        int [] b = a.clone();
+        sort(b,0,a.length-1);
+        int [] c = new int[]{b[0],b[1],b[2]};
+
+        return indekssortering(c);
     }
 
     ///// Oppgave 10 //////////////////////////////////////
