@@ -323,6 +323,10 @@ public class Oblig1 {
             if(bAntall<aAntall){return false;}
         }
 
+        if(aTeller != aR.length){
+            return false;
+        }
+
         return true;
     }
 
