@@ -606,7 +606,6 @@ public class Oblig1Test {
                     ("Oppgave 7b: f) Svaret skal bli ABCDEFGHIJKLMNOPQRSTUVWXY!");
             antallFeil++;
         }
-
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 7");
     }
 
