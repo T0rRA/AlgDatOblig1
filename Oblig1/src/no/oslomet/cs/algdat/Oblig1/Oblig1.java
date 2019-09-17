@@ -310,7 +310,7 @@ public class Oblig1 {
                 }
                 bTeller++;
             }
-            while( aR[aTeller]== temp){
+            while(aTeller < aR.length && aR[aTeller] == temp){
                 aAntall++;
                 if(aTeller==aR.length-1){
                     aTeller++;
@@ -322,6 +322,10 @@ public class Oblig1 {
 
 
             if(bAntall<aAntall){return false;}
+        }
+
+        if(aTeller != aR.length){
+            return false;
         }
 
         return true;
@@ -388,5 +392,6 @@ public class Oblig1 {
     }
 
     public static void main(String[] args){
-
+        Boolean b = Oblig1.inneholdt("ABBA", "AKROBAT");
+        System.out.println(b);
     }}
