@@ -5,12 +5,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.NoSuchElementException;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.cbrt;
-import java.util.Arrays;
-import static java.util.Arrays.binarySearch;
-
-
 public class Oblig1 {
 
     private Oblig1() {
@@ -32,7 +26,6 @@ public class Oblig1 {
         return a[a.length - 1];
     }
 
-
     public static int ombyttinger(int[] a) {
         int antall = 0;
 
@@ -51,8 +44,6 @@ public class Oblig1 {
         System.out.println("Antall ombyttinger: " + antall); //FJERNES - teller antall ombyttinger it tester
         return antall;
     }
-
-
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
@@ -183,28 +174,6 @@ public class Oblig1 {
 
           String ut = new String (kombinert);
           return ut;
-
-       /* String utString = "";
-        int lengde = s.length() - t.length();
-        if (lengde > 0) {
-            for (int i = 0; i < t.length(); i++) {
-                utString += s.charAt(i);
-                utString += t.charAt(i);
-            }
-            for (int i = lengde; i < s.length(); i++) {
-                utString += s.charAt(i);
-            }
-            return utString;
-        } else {
-            for (int i = 0; i < s.length(); i++) {
-                utString += s.charAt(i);
-                utString += t.charAt(i);
-            }
-            for (int i = Math.abs(lengde); i < t.length(); i++) {
-                utString += t.charAt(i);
-            }
-            return utString;
-        }*/
     }
     /// 7b)
     public static String flett(String... s) {
@@ -311,9 +280,13 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-        if (a.length() == 0 || b.length()==0){
+        if (a.length() == 0){
+            return true;
+        }
+        if ( b.length()==0){
             return false;
         }
+
         if(a.length()>b.length()){return false;}
 
         char[]aR = a.toCharArray();
@@ -323,7 +296,6 @@ public class Oblig1 {
 
         int aTeller= 0;
         int bTeller=0;
-
 
         while (bTeller < bR.length){
             int aAntall=0;
@@ -353,23 +325,6 @@ public class Oblig1 {
 
         return true;
     }
-    public static int binarySearchForChar(char[]a, char bokstav, int lav, int hoy){
-        while (lav<hoy) {
-        int m = (lav+hoy)/2;
-        if (bokstav > a[m]) lav= m+1;
-        else hoy=m;
-        }
-        if(hoy<lav||bokstav == a[lav]) return -(lav+1); //her er bokstaven IKKE funnet
-        else if (bokstav == a[lav])return lav; // her er bokstaven FUNNET
-        else return -(lav+2); // bokstaven er ikke funnnet
-    }
-
-    public static void lavhoy(int arrayLengde, int lav, int hoy){
-        if (lav<0||lav>arrayLengde||lav>hoy){
-            throw new ArrayIndexOutOfBoundsException("Velg et annet intervall!");
-        }
-    }
-
 
     public static void sort(int[] a, int left, int right){
         if(left < right) {
@@ -431,18 +386,6 @@ public class Oblig1 {
         return left;
     }
 
-
-/*int[] a = {3};
-        int[] b = {5, 2, 8, 4, 7, 6};
-        int[] c = {5, 4, 3, 2, 1};System.​out.println(a);
-        int[] d = {1, 2, 3, 4, 5};*/
-
     public static void main(String[] args){
-        String s = Oblig1.flett("AFK", "BGLP", "CHMQT", "DINRUW", "EJOSVXY");
-        System.out.println(s);
+
     }}
-
-  // Oblig1
-
-
-//test commit
