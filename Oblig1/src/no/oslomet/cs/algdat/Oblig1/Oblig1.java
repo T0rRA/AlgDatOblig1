@@ -224,7 +224,6 @@ public class Oblig1 {
         sort(b,0,a.length-1);
 
         for(int i = 0; i < a.length; i++){
-            //sortertIndeks[i] = binarySearch(a,b[i]);
             for(int j = 0; j < a.length; j++){
                 if(a[j] == b[i]){
                     sortertIndeks[i] = j;
@@ -241,11 +240,30 @@ public class Oblig1 {
         if(a.length < 3){
             throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
         }
-        int [] b = a.clone();
-        sort(b,0,a.length-1);
-        int [] c = new int[]{b[0],b[1],b[2]};
 
-        return indekssortering(c);
+        int minIndeks1 = 0;
+        int minIndeks2 = 1;
+        int minIndeks3 = 2;
+
+        int min1 = a[minIndeks1];
+        int min2 = a[minIndeks2];
+        int min3 = a[minIndeks3];
+
+        for(int i = 0; i < a.length; i++){
+            if(a[i] <= min1){
+                minIndeks1 = i;
+                min1 = a[i];
+            } else if(a[i] <= min2){
+                minIndeks2 = i;
+                min2 = a[i];
+            } else if(a[i] <= min3){
+                minIndeks3 = i;
+                min3 = a[i];
+            }
+        }
+        int [] sortertIndeks = {minIndeks1,minIndeks2,minIndeks3};
+        return sortertIndeks;
+
     }
 
     ///// Oppgave 10 //////////////////////////////////////
