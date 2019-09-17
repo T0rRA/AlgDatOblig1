@@ -235,38 +235,49 @@ public class Oblig1 {
         return sortertIndeks;
     }
 
-    public static int[] indekssortering(int[] a, int n) {
-        int[] sortertIndeks = new int [n];
-
-        if( a == null || a.length == 0){
-            return sortertIndeks;
-        }
-        if(a.length == 1){
-            return new int[]{0};
-        }
-
-        int[] b = a.clone();
-        sort(b,0,a.length-1);
-
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < a.length; j++){
-                if(a[j] == b[i]){
-                    sortertIndeks[i] = j;
-                }
-            }
-        }
-        return sortertIndeks;
-    }
-
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        //throw new NotImplementedException();
         if(a.length < 3){
             throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
         }
 
-        return indekssortering(a,3);
+        int [] sortertIndeks;
 
+        int [] b = new int[3];
+        System.arraycopy(a,0,b,0,3);
+        sortertIndeks = indekssortering(b);
+
+        int minsteIndeks = sortertIndeks[0];
+        int andreminsteIndeks = sortertIndeks[1];
+        int tredjeminsteIndeks = sortertIndeks[2];
+
+        int minsteVerdi = a[minsteIndeks];
+        int andreminsteVerdi = a[andreminsteIndeks];
+        int tredjeminsteVerdi = a[tredjeminsteIndeks];
+
+        for(int i = 3; i < a.length; i++){
+            if(a[i] < minsteVerdi){
+                tredjeminsteVerdi = andreminsteVerdi;
+                tredjeminsteIndeks = andreminsteIndeks;
+                andreminsteVerdi = minsteVerdi;
+                andreminsteIndeks = minsteIndeks;
+                minsteVerdi = a[i];
+                minsteIndeks = i;
+            } else if(a[i] < andreminsteVerdi){
+                tredjeminsteVerdi = andreminsteVerdi;
+                tredjeminsteIndeks = andreminsteIndeks;
+                andreminsteVerdi = a[i];
+                andreminsteIndeks = i;
+            } else if(a[i] < tredjeminsteVerdi){
+                tredjeminsteVerdi = a[i];
+                tredjeminsteIndeks = i;
+            }
+        }
+
+        sortertIndeks[0] = minsteIndeks;
+        sortertIndeks[1] = andreminsteIndeks;
+        sortertIndeks[2] = tredjeminsteIndeks;
+        return sortertIndeks;
     }
 
     ///// Oppgave 10 //////////////////////////////////////
