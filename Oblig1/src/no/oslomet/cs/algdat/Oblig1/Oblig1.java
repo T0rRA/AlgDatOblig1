@@ -334,6 +334,38 @@ public class Oblig1 {
         }
         return left;
     }
+
+    public static void sort(char[] a, int left, int right){
+        if(left < right) {
+            int partisjon = partition(a, left, right);
+
+            sort(a, left, partisjon - 1);
+            sort(a, partisjon, right);
+        }
+    }
+
+    public static int partition(char[] a, int left, int right){
+        int pivot = a[(left + right)/2];
+
+        while(left <= right){
+            while (a[left] < pivot){
+                left++;
+            }
+            while (a[right] > pivot){
+                right--;
+            }
+            if(left <= right) {
+                char temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return left;
+    }
+
+
 /*int[] a = {3};
         int[] b = {5, 2, 8, 4, 7, 6};
         int[] c = {5, 4, 3, 2, 1};
