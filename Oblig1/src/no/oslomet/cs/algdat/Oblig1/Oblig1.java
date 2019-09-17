@@ -2,6 +2,7 @@ package no.oslomet.cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.NoSuchElementException;
 
 import static java.lang.Math.abs;
@@ -233,6 +234,28 @@ public class Oblig1 {
         return sortertIndeks;
     }
 
+    public static int[] indekssortering(int[] a, int n) {
+        int[] sortertIndeks = new int [n];
+
+        if( a == null || a.length == 0){
+            return sortertIndeks;
+        }
+        if(a.length == 1){
+            return new int[]{0};
+        }
+
+        int[] b = a.clone();
+        sort(b,0,a.length-1);
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < a.length; j++){
+                if(a[j] == b[i]){
+                    sortertIndeks[i] = j;
+                }
+            }
+        }
+        return sortertIndeks;
+    }
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
@@ -241,28 +264,7 @@ public class Oblig1 {
             throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
         }
 
-        int minIndeks1 = 0;
-        int minIndeks2 = 1;
-        int minIndeks3 = 2;
-
-        int min1 = a[minIndeks1];
-        int min2 = a[minIndeks2];
-        int min3 = a[minIndeks3];
-
-        for(int i = 0; i < a.length; i++){
-            if(a[i] <= min1){
-                minIndeks1 = i;
-                min1 = a[i];
-            } else if(a[i] <= min2){
-                minIndeks2 = i;
-                min2 = a[i];
-            } else if(a[i] <= min3){
-                minIndeks3 = i;
-                min3 = a[i];
-            }
-        }
-        int [] sortertIndeks = {minIndeks1,minIndeks2,minIndeks3};
-        return sortertIndeks;
+        return indekssortering(a,3);
 
     }
 
