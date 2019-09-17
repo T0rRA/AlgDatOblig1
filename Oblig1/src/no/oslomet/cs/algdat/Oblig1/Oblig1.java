@@ -208,14 +208,39 @@ public class Oblig1 {
     }
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+        if(s.length == 0){
+            return "";
+        }
+        String ut = "";
+        int [] lengderAvStrenger = new int[s.length];
+        for(int i = 0; i < s.length; i++){
+            lengderAvStrenger[i] = s[i].length();
+        }
+
+
+        int lengsteString = lengderAvStrenger[0];
+        for(int i = 1; i < lengderAvStrenger.length; i++){
+            if(lengderAvStrenger[i] > lengsteString){
+                lengsteString = lengderAvStrenger[i];
+            }
+        }
+
+        for (int j = 0; j < lengsteString; j++){
+                for (int k = 0; k < s.length; k++){
+                    if (j < lengderAvStrenger[k]) {
+                        ut += s[k].charAt(j);
+                    }
+                }
+            }
+
+        return ut;
     }
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         int[] sortertIndeks = new int [a.length];
 
-        if( a == null || a.length == 0){
+        if(a.length == 0){
             return sortertIndeks;
         }
         if(a.length == 1){
@@ -226,7 +251,6 @@ public class Oblig1 {
         sort(b,0,a.length-1);
 
         for(int i = 0; i < a.length; i++){
-            //sortertIndeks[i] = binarySearch(a,b[i]);
             for(int j = 0; j < a.length; j++){
                 if(a[j] == b[i]){
                     sortertIndeks[i] = j;
@@ -236,18 +260,49 @@ public class Oblig1 {
         return sortertIndeks;
     }
 
-
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        //throw new NotImplementedException();
         if(a.length < 3){
             throw new NoSuchElementException("Du må ha en tabell som har 3 eller flere verdier");
         }
-        int [] b = a.clone();
-        sort(b,0,a.length-1);
-        int [] c = new int[]{b[0],b[1],b[2]};
 
-        return indekssortering(c);
+        int [] sortertIndeks;
+
+        int [] b = new int[3];
+        System.arraycopy(a,0,b,0,3);
+        sortertIndeks = indekssortering(b);
+
+        int minsteIndeks = sortertIndeks[0];
+        int andreminsteIndeks = sortertIndeks[1];
+        int tredjeminsteIndeks = sortertIndeks[2];
+
+        int minsteVerdi = a[minsteIndeks];
+        int andreminsteVerdi = a[andreminsteIndeks];
+        int tredjeminsteVerdi = a[tredjeminsteIndeks];
+
+        for(int i = 3; i < a.length; i++){
+            if(a[i] < minsteVerdi){
+                tredjeminsteVerdi = andreminsteVerdi;
+                tredjeminsteIndeks = andreminsteIndeks;
+                andreminsteVerdi = minsteVerdi;
+                andreminsteIndeks = minsteIndeks;
+                minsteVerdi = a[i];
+                minsteIndeks = i;
+            } else if(a[i] < andreminsteVerdi){
+                tredjeminsteVerdi = andreminsteVerdi;
+                tredjeminsteIndeks = andreminsteIndeks;
+                andreminsteVerdi = a[i];
+                andreminsteIndeks = i;
+            } else if(a[i] < tredjeminsteVerdi){
+                tredjeminsteVerdi = a[i];
+                tredjeminsteIndeks = i;
+            }
+        }
+
+        sortertIndeks[0] = minsteIndeks;
+        sortertIndeks[1] = andreminsteIndeks;
+        sortertIndeks[2] = tredjeminsteIndeks;
+        return sortertIndeks;
     }
 
     ///// Oppgave 10 //////////////////////////////////////
@@ -297,7 +352,7 @@ public class Oblig1 {
         }
     }
 
-    public static int partition(int[] a, int left, int right){
+    private static int partition(int[] a, int left, int right){
         int pivot = a[(left + right)/2];
 
         while(left <= right){
@@ -317,38 +372,46 @@ public class Oblig1 {
         }
         return left;
     }
+
+    public static void sort(char[] a, int left, int right){
+        if(left < right) {
+            int partisjon = partition(a, left, right);
+
+            sort(a, left, partisjon - 1);
+            sort(a, partisjon, right);
+        }
+    }
+
+    private static int partition(char[] a, int left, int right){
+        int pivot = a[(left + right)/2];
+
+        while(left <= right){
+            while (a[left] < pivot){
+                left++;
+            }
+            while (a[right] > pivot){
+                right--;
+            }
+            if(left <= right) {
+                char temp = a[left];
+                a[left] = a[right];
+                a[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return left;
+    }
+
+
 /*int[] a = {3};
         int[] b = {5, 2, 8, 4, 7, 6};
-        int[] c = {5, 4, 3, 2, 1};
+        int[] c = {5, 4, 3, 2, 1};System.​out.println(a);
         int[] d = {1, 2, 3, 4, 5};*/
 
     public static void main(String[] args){
-        // flett("abcd","12345");
-        int []a= {2,5,3,1};
-       // indekssortering(a);
-        for(int ff : Oblig1.indekssortering(a)){
-            System.out.print(ff);
-        }
-
-        /* char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        rotasjon(a,-6);
-        System.out.print(a);
-
-       for(int nummer : tall){
-        int [] tall = {324,2,7,8,3};
-        int [] a = {1, 3, 5, 4, 2, 6};
-        sort(a,3,a.length-1);
-        sort(tall, 0, tall.length-1);
-        for(int nummer : tall){
-            System.out.print(nummer + " ");
-
-        }
-
-        }
-        System.out.println("");
-        for (int nummer : a){
-            System.out.print(nummer + " ");
-        }*/
+        String s = Oblig1.flett("AFK", "BGLP", "CHMQT", "DINRUW", "EJOSVXY");
+        System.out.println(s);
     }}
 
   // Oblig1
