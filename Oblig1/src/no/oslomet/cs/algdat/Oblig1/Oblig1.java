@@ -34,9 +34,12 @@ public class Oblig1 {
      * Det blir færrest ombyttinger når listen er sortert i stigende rekkefølge.
      *
      * Hvor mange blir det i gjennomsnitt?
-     * n/2
+     * n-1 -(hn -1) = n-hn
+     *
      * Kan du på grunnlag av dette si om metoden maks er bedre (eller
      * dårligere) enn de maks-metodene vi har sett på tidligere?
+     * Denne algoritmen er veldig lite effektiv for store datasett, så den er veldig mye mindere effektiv
+     * enn mange av de vi har sett på før.
      *
      * @param a
      * @return
@@ -403,15 +406,4 @@ public class Oblig1 {
         }
         return left;
     }
-
-    public static void main(String[] args){
-        int[] a = {3};
-        int[] b = {5, 2, 8, 4, 7, 6};
-        int[] c = {5, 4, 3, 2, 1};
-        int[] d = {1, 2, 3, 4, 5};
-        ombyttinger(a);
-        ombyttinger(b);
-        ombyttinger(c);
-        ombyttinger(d);
-
-    }}
+}
