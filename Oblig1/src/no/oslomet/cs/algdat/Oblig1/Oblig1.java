@@ -252,25 +252,25 @@ public class Oblig1 {
 
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
-
-
-        return 0;
+        throw new NotImplementedException();
     }
 
     public static boolean inneholdt(String a, String b) {
+        if(a.length()>b.length()){return false;}
 
         char[]aR = a.toCharArray();
+        char []bR = b.toCharArray();
+        sort(aR,0 ,aR.length-1 );
+        sort(bR,0, bR.length)-1);
 
-        //TODO KJØRE SORT og kjøre binary Search
-        //if (binarySearchForChar >0) return true
-        //if (binarySearchForChar <0 return false
+        for (int i =0;i < bR.length;i++){
+          char temp;
+            
+        }
+
         return true;
     }
-    public static int binarySearchForChar(char[]a, char bokstav){
-        int lav = 0;
-        int hoy = a.length-1;
-        //kan evt teste lav/høy endepunkter: if (lav<0||høy>.length||lav>høy) ArrayOutOfBoundsException
-
+    public static int binarySearchForChar(char[]a, char bokstav, int lav, int hoy){
         while (lav<hoy) {
         int m = (lav+hoy)/2;
         if (bokstav > a[m]) lav= m+1;
@@ -280,10 +280,12 @@ public class Oblig1 {
         else if (bokstav == a[lav])return lav; // her er bokstaven FUNNET
         else return -(lav+2); // bokstaven er ikke funnnet
     }
-    //recursive : legg til
-    /*
-        return binarySearchForChar(bokstav, a);
-    }*/
+
+    public static void lavhoy(int arrayLengde, int lav, int hoy){
+        if (lav<0||lav>arrayLengde||lav>hoy){
+            throw new ArrayIndexOutOfBoundsException("Velg et annet intervall!");
+        }
+    }
 
 
     public static void sort(int[] a, int left, int right){
