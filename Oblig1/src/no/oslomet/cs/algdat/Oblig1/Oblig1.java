@@ -218,6 +218,8 @@ public class Oblig1 {
         return ut;
     }
 
+
+
     ///// Oppgave 8 //////////////////////////////////////
     public static void bytteFunksjon(int[] sorterteIndexer, int i, int j)
     {
@@ -228,16 +230,16 @@ public class Oblig1 {
 
 
     public static int[] indekssortering(int[] a) {
-     /*   // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
+        // fungerer, men tror kalling av quicksort+henting av indexer er det de er ute etter :P
         int[] sorterteIndexer = IntStream.range(0, a.length)
                 .boxed().sorted((i, j) -> a[i] - a[j])
                 .mapToInt(ele -> ele).toArray();
 
         return sorterteIndexer;
     }
-*/
 
-        int [] sorterteIndexer  = new int [a.length];
+
+        /*int [] sorterteIndexer  = new int [a.length];
 
         for (int i = 0; i < a.length; i++){
             sorterteIndexer[i] = i; }
@@ -255,8 +257,8 @@ public class Oblig1 {
                 }
             }
         return sorterteIndexer;
+*/
 
-    }
 
 
     ///// Oppgave 9 //////////////////////////////////////
@@ -266,12 +268,39 @@ public class Oblig1 {
 
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
-        throw new NotImplementedException();
+
+
+        return 0;
     }
 
     public static boolean inneholdt(String a, String b) {
-        throw new NotImplementedException();
+
+        char[]aR = a.toCharArray();
+
+        //TODO KJØRE SORT og kjøre binary Search
+        //if (binarySearchForChar >0) return true
+        //if (binarySearchForChar <0 return false
+        return true;
     }
+    public static int binarySearchForChar(char[]a, char bokstav){
+        int lav = 0;
+        int hoy = a.length-1;
+        //kan evt teste lav/høy endepunkter: if (lav<0||høy>.length||lav>høy) ArrayOutOfBoundsException
+
+        while (lav<hoy) {
+        int m = (lav+hoy)/2;
+        if (bokstav > a[m]) lav= m+1;
+        else hoy=m;
+        }
+        if(hoy<lav||bokstav == a[lav]) return -(lav+1); //her er bokstaven IKKE funnet
+        else if (bokstav == a[lav])return lav; // her er bokstaven FUNNET
+        else return -(lav+2); // bokstaven er ikke funnnet
+    }
+    //recursive : legg til
+    /*
+        return binarySearchForChar(bokstav, a);
+    }*/
+
 
     public static void sort(int[] a, int left, int right){
         if(left < right) {
@@ -309,7 +338,7 @@ public class Oblig1 {
 
     public static void main(String[] args){
         // flett("abcd","12345");
-        int []a= {2,1,3};
+        int []a= {2,5,3,1};
        // indekssortering(a);
         for(int ff : Oblig1.indekssortering(a)){
             System.out.print(ff);

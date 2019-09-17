@@ -10,6 +10,6 @@ Oppgaven er levert av følgende studenter:
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Helge har hatt hovedansvar for oppgave 2, 4, 5 ,6
-* Tor har hatt hovedansvar for oppgave 1
+* Tor har hatt hovedansvar for oppgave 1, 7, 10
 * Benjamin har hatt hovedansvar for oppgave 3
 
